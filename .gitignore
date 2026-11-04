@@ -1,0 +1,6 @@
+Server/.env
+Server/voicebill.db
+Server/server.log
+Server/server-error.log
+Client/node_modules/
+Client/dist/
