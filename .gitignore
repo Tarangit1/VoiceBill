@@ -4,3 +4,8 @@ Server/server.log
 Server/server-error.log
 Client/node_modules/
 Client/dist/
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
