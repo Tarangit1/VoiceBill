@@ -32,7 +32,7 @@ Open the Vite URL (normally `http://localhost:5173`). The dashboard checks `GET 
 
 The transcript parser currently supports simple quantity-and-price phrases such as `ek chai das rupaye` and `2 coffees 50 rupees`. A production speech-to-text provider can later send its clean transcript to the same endpoint.
 
-UPI details are set through `VOICEBILL_UPI_ID` and `VOICEBILL_MERCHANT_NAME` environment variables; the starter is configured for Myshop and `8168815168@yespop`.
+UPI details are set through `VOICEBILL_UPI_ID` and `VOICEBILL_MERCHANT_NAME` environment variables; the starter is configured for Myshop and `Your_UPI_ID`.
 
 ## Conversational billing
 

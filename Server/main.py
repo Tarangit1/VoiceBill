@@ -306,7 +306,10 @@ Keep the reply short and end normal replies by asking what to add next."""
             raise ValueError("No JSON object in model response")
         return BillingDecision.model_validate(json.loads(content[start:end + 1]))
     except Exception as error:
+        import traceback
+        traceback.print_exc()
         logger.warning("Nemotron billing interpretation failed: %s", error)
+        print(f"[DEBUG] interpret_billing_message FAILED: {type(error).__name__}: {error}", flush=True)
         return BillingDecision(intent="clarify", reply="I did not catch that. Please say the item, quantity, and price.")
 
 
@@ -466,7 +469,7 @@ def chat_about_bill(session_id: int, request: ChatRequest) -> ChatResponse:
                     connection, session_id, item.name.strip(), item.quantity, item.unit_price, request.message
                 ))
     return ChatResponse(
-        assistant_message=decision.reply,
+        assistant_message="Generating your bill." if decision.intent == "finish" else decision.reply,
         added_item=items[0] if items else None,
         added_items=items,
         should_finalize=decision.intent == "finish",
